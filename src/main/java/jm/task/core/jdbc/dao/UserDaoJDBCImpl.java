@@ -20,7 +20,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Statement statement = connection.createStatement()) {
 
             connection.setAutoCommit(false);
-            statement.execute("CREATE TABLE IF NOT EXISTS Users(id BIGINT AUTO_INCREMENT PRIMARY key,name varchar(255), lastname varchar(255), age int)");
+            statement.execute("CREATE TABLE IF NOT EXISTS User(id BIGINT AUTO_INCREMENT PRIMARY key,name varchar(255), lastname varchar(255), age int)");
             connection.commit();
         } catch (SQLException e) {
             try {
@@ -35,7 +35,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void dropUsersTable() {
         try (Statement statement = connection.createStatement()) {
             connection.setAutoCommit(false);
-            statement.execute("DROP TABLE IF EXISTS Users");
+            statement.execute("DROP TABLE IF EXISTS User");
             connection.commit();
         } catch (SQLException e) {
             try {
